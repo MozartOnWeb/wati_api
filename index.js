@@ -38,15 +38,15 @@ amplitude.init("b9b96baa680b04351fa202752572b766");
 
 // Configure body-parser middleware to parse JSON
 app.use(bodyParser.json());
-app.use(express.static("public"));
+// app.use(express.static("public"));
 
 // Shared data structure to store userID information
 const sharedData = {};
 
 //
-app.get("/", (req, res) => {
-  res.sendFile("index.html", { root: path.join(__dirname, "public") });
-});
+// app.get("/", (req, res) => {
+//   res.sendFile("index.html", { root: path.join(__dirname, "public") });
+// });
 
 // Handle the webhook endpoint
 app.post("/sent", (req, res) => {
