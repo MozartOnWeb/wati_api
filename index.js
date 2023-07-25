@@ -64,9 +64,13 @@ app.post("/sent", (req, res) => {
       send_time: convertISOStringToHumanReadable(payload.created),
     };
 
-    amplitude.track("WhatsApp_Messages_Received", WhatsApp_Messages_Received, {
-      user_id: payload.waId,
-    });
+    amplitude.track(
+      "WhatsApp_Messages_Received_vercel",
+      WhatsApp_Messages_Received,
+      {
+        user_id: payload.waId,
+      }
+    );
 
     // Store the userID in the shared data structure
     sharedData[payload.whatsappMessageId] = payload.waId;
