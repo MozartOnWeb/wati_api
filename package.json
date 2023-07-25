@@ -2,7 +2,7 @@
   "name": "wati_webhooks",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/MozartOnWeb/wati_api.git",
+  "repository": "https://github.com/MozartOnWeb/wati_webhooks.git",
   "author": "Mandjou Dama <79732869+MozartOnWeb@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
