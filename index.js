@@ -50,10 +50,10 @@ app.get("/", (req, res) => {
 
 // Handle the webhook endpoint
 app.post("/sent", (req, res) => {
-  // Extract the payload from the request body
-  const payload = req.body;
+  if (req.method === "POST") {
+    // Extract the payload from the request body
+    const payload = req.body;
 
-  try {
     // Process the webhook payload
     console.log("SENT", payload);
 
@@ -74,8 +74,9 @@ app.post("/sent", (req, res) => {
     res.status(200).json({
       success: true,
     });
-  } catch (error) {
-    console.log(error);
+  } else {
+    // Respond with a 404 Not Found for non-POST requests
+    res.status(404).send("Not Found");
   }
 });
 
@@ -174,7 +175,7 @@ app.post("/replied", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`your app is listening on port localhost:${port}`);
+  console.log(`your app is listening on port http://localhost:${port}`);
 });
 
 module.exports = app;
